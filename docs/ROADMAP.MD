@@ -10,7 +10,7 @@ Build a Tibia fansite as a learning and portfolio project, with an Angular front
 - PostgreSQL 17 through Docker Compose, EF Core migrations, and ASP.NET Core Identity.
 - Cookie authentication, CSRF protection, account preferences, and Admin role authorization.
 - Petrol & Lantern frontend with landing, character lookup, account, admin, and tool pages.
-- Public character lookup using TibiaData v4 through the backend.
+- Public character lookup using TibiaData v5 through the backend.
 - [NPC selling](features/NPC_SELLING.md) with delivery-task highlighting and [world market comparisons](features/MARKET_VALUES.md).
 - Independent world/NPC/market jobs with durable JSON snapshots and [shared refresh infrastructure](DATA_REFRESH.md).
 - Authenticated [character scans](features/CHARACTER_SCANS.md) using 14 days of observed same-world session timing stored in PostgreSQL.

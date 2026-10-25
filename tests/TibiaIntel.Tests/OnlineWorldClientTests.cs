@@ -22,7 +22,7 @@ public sealed class OnlineWorldClientTests
             """);
         using var http = new HttpClient(handler);
         Assert.Equal(["Antica", "Secura", "Tournament"], await CreateClient(http).WorldsAsync(default));
-        Assert.EndsWith("/v4/worlds", handler.LastUrl);
+        Assert.EndsWith("/v5/worlds", handler.LastUrl);
     }
 
     [Fact]
@@ -58,11 +58,11 @@ public sealed class OnlineWorldClientTests
     {
         using var handler = new JsonSource("{}");
         using var http = new HttpClient(handler);
-        await Assert.ThrowsAsync<InvalidOperationException>(() => CreateClient(http, "https://dev.tibiadata.com/v4/").WorldsAsync(default));
+        await Assert.ThrowsAsync<InvalidOperationException>(() => CreateClient(http, "https://dev.tibiadata.com/v5/").WorldsAsync(default));
         Assert.Null(handler.LastUrl);
     }
 
-    private static OnlineWorldClient CreateClient(HttpClient http, string baseUrl = "https://api.tibiadata.com/v4/")
+    private static OnlineWorldClient CreateClient(HttpClient http, string baseUrl = "https://api.tibiadata.com/v5/")
     {
         var clock = new FakeTimeProvider(Now);
         using var services = new ServiceCollection().AddOptions().Configure<MarketSourceOptions>(_ => { }).BuildServiceProvider();
